@@ -42,6 +42,7 @@ const theme = {
   colors,
   borderRadius: '8px',
   transition: '200ms ease-in-out',
+  fontFamily: "'Rubick', sans-serif",
 };
 
 export default theme;
