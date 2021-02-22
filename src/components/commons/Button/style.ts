@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import breakpointsMedia from '../../../style/theme/util/breakpointsMedia';
 
 type ButtonComponentProps = {
   ghost?: boolean;
@@ -24,6 +25,16 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
   transition: opacity ${({ theme }) => theme.transition};
   border-radius: ${({ theme }) => theme.borderRadius};
   ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)};
+
+  ${breakpointsMedia({
+    xs: css`
+      ${({ theme }) => theme.typographyVariants.smallestException}
+    `,
+    md: css`
+      padding: 12px 43px;
+      ${({ theme }) => theme.typographyVariants.paragraph1}
+    `,
+  })}
 
   &:hover,
   &:focus {
