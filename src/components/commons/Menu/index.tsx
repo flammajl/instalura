@@ -1,6 +1,7 @@
 import { MenuWrapper } from './style';
 import Button from '../Button';
 import Logo from '../../../assets/logoLight.svg';
+import Text from '../../foundation/Text';
 
 const Menu: React.FC = () => (
   <MenuWrapper>
@@ -9,13 +10,19 @@ const Menu: React.FC = () => (
     </MenuWrapper.LeftSide>
     <MenuWrapper.CentralSide>
       <li>
-        <a href="/">Home</a>
+        <Text href="/" tag="a" variant="smallestException">
+          Home
+        </Text>
       </li>
       <li>
-        <a href="/faq">Perguntas Frequentes</a>
+        <Text href="/faq" tag="a" variant="smallestException">
+          Perguntas frequentes
+        </Text>
       </li>
       <li>
-        <a href="/sobre">Sobres</a>
+        <Text href="/sobre" tag="a" variant="smallestException">
+          Sobre
+        </Text>
       </li>
     </MenuWrapper.CentralSide>
     <MenuWrapper.RightSide>

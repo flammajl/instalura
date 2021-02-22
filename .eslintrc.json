@@ -26,6 +26,7 @@
 	],
 	"rules": {
 		"prettier/prettier": "error",
+    "indent": "off",
 		"react/prop-types": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "react/react-in-jsx-scope": "off",
