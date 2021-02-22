@@ -19,13 +19,18 @@ interface cssBreakpointsProps {
 const breakpointsMedia = (cssBreakpoints: cssBreakpointsProps) => {
   const breakpointsNames = Object.keys(breakpoints);
 
-  return breakpointsNames.map(
-    breakpointsName => css`
-      @media only screen and (min-width: ${breakpoints[breakpointsName]}px) {
-        ${cssBreakpoints[breakpointsName]}
-      }
-    `,
-  );
+  return breakpointsNames
+    .filter(breakpointsNameFilter => !!cssBreakpoints[breakpointsNameFilter])
+    .map(
+      breakpointsName =>
+        css`
+          @media only screen and (min-width: ${breakpoints[
+              breakpointsName
+            ]}px) {
+            ${cssBreakpoints[breakpointsName]}
+          }
+        `,
+    );
 };
 
 export default breakpointsMedia;
