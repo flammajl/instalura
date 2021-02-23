@@ -1,8 +1,18 @@
 import styled, { css } from 'styled-components';
 import breakpointsMedia from '../../../style/theme/util/breakpointsMedia';
+import propToStyle from '../../../style/theme/util/propToStyle';
 
 type ButtonComponentProps = {
   ghost?: boolean;
+  propStyle?:
+    | { [key: string]: string }
+    | {
+        xs?: { [key: string]: string };
+        sm?: { [key: string]: string };
+        md?: { [key: string]: string };
+        lg?: { [key: string]: string };
+        xl?: { [key: string]: string };
+      };
 };
 
 const ButtonGhost = css`
@@ -40,4 +50,6 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
   &:focus {
     opacity: 0.5;
   }
+
+  ${({ propStyle }) => propToStyle({ propName: propStyle })}
 `;

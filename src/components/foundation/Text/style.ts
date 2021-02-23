@@ -1,4 +1,6 @@
+/* eslint operator-linebreak: off */
 import styled, { css } from 'styled-components';
+import propToStyle from '../../../style/theme/util/propToStyle';
 
 export const textTypeVariants = {
   title: css`
@@ -42,8 +44,26 @@ export const textTypeVariants = {
 
 type TextBaseProps = {
   variant: keyof typeof textTypeVariants;
+  color?: 'primary' | 'secondary' | 'tertiary';
+  lightColor?: boolean;
+  propStyle?:
+    | { [key: string]: string }
+    | {
+        xs?: { [key: string]: string };
+        sm?: { [key: string]: string };
+        md?: { [key: string]: string };
+        lg?: { [key: string]: string };
+        xl?: { [key: string]: string };
+      };
 };
 
 export const TextBase = styled.span<TextBaseProps>`
   ${({ variant }) => textTypeVariants[variant]};
+  ${({ propStyle }) => propToStyle({ propName: propStyle })}
+
+  ${({ theme, color, lightColor }) =>
+    color &&
+    css`
+      color: ${theme.colors[color][lightColor ? 'light' : 'main'].color};
+    `}
 `;
