@@ -1,14 +1,14 @@
-import { MenuWrapper } from './style';
+import MenuNav from './style';
 import Button from '../Button';
 import Logo from '../../../assets/logoLight.svg';
 import Text from '../../foundation/Text';
 
 const Menu: React.FC = () => (
-  <MenuWrapper>
-    <MenuWrapper.LeftSide>
+  <MenuNav.Wrapper>
+    <MenuNav.LeftSide>
       <Logo />
-    </MenuWrapper.LeftSide>
-    <MenuWrapper.CentralSide>
+    </MenuNav.LeftSide>
+    <MenuNav.CentralSide>
       <li>
         <Text href="/" tag="a" variant="smallestException">
           Home
@@ -24,12 +24,12 @@ const Menu: React.FC = () => (
           Sobre
         </Text>
       </li>
-    </MenuWrapper.CentralSide>
-    <MenuWrapper.RightSide>
+    </MenuNav.CentralSide>
+    <MenuNav.RightSide>
       <Button ghost>Entrar</Button>
       <Button>Cadastrar</Button>
-    </MenuWrapper.RightSide>
-  </MenuWrapper>
+    </MenuNav.RightSide>
+  </MenuNav.Wrapper>
 );
 
 export default Menu;
