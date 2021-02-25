@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Box from '@/style/layout/Box';
 import Button from '../components/commons/Button';
 import Footer from '../components/commons/Footer';
 import Menu from '../components/commons/Menu';
@@ -7,8 +8,8 @@ import Grid from '../style/layout/Grid';
 import Phones from '../assets/phones.png';
 
 const Home: React.FC = () => (
-  <div
-    style={{
+  <Box
+    propStyle={{
       flex: '1',
       display: 'flex',
       flexWrap: 'wrap',
@@ -28,8 +29,16 @@ const Home: React.FC = () => (
           },
         }}
       >
-        <Grid.Col>
-          <div>
+        <Grid.Col
+          propStyle={{
+            md: {
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            },
+          }}
+        >
+          <div style={{ maxWidth: '470px' }}>
             <Text
               variant="title"
               tag="h1"
@@ -95,7 +104,7 @@ const Home: React.FC = () => (
       </Grid.Row>
     </Grid.Container>
     <Footer />
-  </div>
+  </Box>
 );
 
 export default Home;

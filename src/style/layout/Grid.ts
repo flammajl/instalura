@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import breakpointsMedia from '../theme/util/breakpointsMedia';
 import propToStyle from '../theme/util/propToStyle';
 
-type RowProps = {
+type propToStyleProps = {
   propStyle?:
     | { [key: string]: string }
     | {
@@ -30,12 +30,14 @@ const Container = styled.div`
   })}
 `;
 
-const Col = styled.div`
+const Col = styled.div<propToStyleProps>`
   padding-right: 16px;
   padding-left: 16px;
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%;
+
+  ${({ propStyle }) => propToStyle({ propName: propStyle })}
 
   & + div {
     min-width: 300px;
@@ -72,7 +74,7 @@ const Col = styled.div`
   })}
 `;
 
-const Row = styled.div<RowProps>`
+const Row = styled.div<propToStyleProps>`
   display: flex;
   flex-wrap: wrap;
   margin-right: -16px;
